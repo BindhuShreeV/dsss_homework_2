@@ -10,6 +10,6 @@ setup(
             "math_quiz=math_quiz_package.math_quiz:math_quiz",  # Adjusted for new package path
         ],
     },
-    author="Your Name",
+    author="ma41rode",
     description="A simple math quiz application",
 )
