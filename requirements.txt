@@ -11,8 +11,6 @@ installer==0.7.0
 isort==5.13.2
 joblib==1.4.2
 kiwisolver==1.4.7
-math_quiz==1.0.1
-math_quiz.egg-info==1.0.1	
 matplotlib==3.9.2
 mccabe==0.7.0
 numpy==2.1.3
