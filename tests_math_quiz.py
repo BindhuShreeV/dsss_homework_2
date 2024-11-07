@@ -1,24 +1,24 @@
 import unittest
-from math_quiz import generate_random_integer, generate_random_operator, generate_math_problem
+from math_quiz import generate_random_number, generate_random_operation, create_math_problem
 
 class TestMathQuiz(unittest.TestCase):
 
-    def test_generate_random_integer(self):
-        """Test if the generated random integer is within the specified range."""
+    def test_generate_random_number(self):
+        """Tests if the generated random number is within the specified range."""
         min_val, max_val = 1, 10
-        for _ in range(100):  # Test multiple times to ensure randomness stays in range
-            rand_num = generate_random_integer(min_val, max_val)
-            self.assertTrue(min_val <= rand_num <= max_val, f"Random integer {rand_num} out of range")
+        for _ in range(100):
+            random_number = generate_random_number(min_val, max_val)
+            self.assertTrue(min_val <= random_number <= max_val)
 
-    def test_generate_random_operator(self):
-        """Test if the generated operator is one of '+', '-', or '*'."""
+    def test_generate_random_operation(self):
+        """Tests if the generated operator is one of '+', '-', or '*'."""
         valid_operators = ['+', '-', '*']
-        for _ in range(100):  # Test multiple times for randomness
-            operator = generate_random_operator()
-            self.assertIn(operator, valid_operators, f"Generated invalid operator {operator}")
+        for _ in range(100):
+            operator = generate_random_operation()
+            self.assertIn(operator, valid_operators)
 
-    def test_generate_math_problem(self):
-        """Test math problem generation and correctness of the answer."""
+    def test_create_math_problem(self):
+        """Tests math problem creation and correct answer calculation."""
         test_cases = [
             (5, 2, '+', "5 + 2", 7),
             (7, 3, '-', "7 - 3", 4),
@@ -28,10 +28,10 @@ class TestMathQuiz(unittest.TestCase):
             (3, 0, '*', "3 * 0", 0),
         ]
 
-        for num1, num2, operator, expected_problem, expected_answer in test_cases:
-            problem, answer = generate_math_problem(num1, num2, operator)
-            self.assertEqual(problem, expected_problem, f"Generated problem string '{problem}' is incorrect")
-            self.assertEqual(answer, expected_answer, f"Expected answer {expected_answer}, but got {answer}")
+        for operand1, operand2, operation, expected_problem, expected_answer in test_cases:
+            problem, answer = create_math_problem(operand1, operand2, operation)
+            self.assertEqual(problem, expected_problem)
+            self.assertEqual(answer, expected_answer)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
